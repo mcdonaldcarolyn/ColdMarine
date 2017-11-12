@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+body {
+    padding: 2em 23em;
+    background: lightblue;
+}
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex:1 1 auto;
+    flex: 1 1 auto;
+}
