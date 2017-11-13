@@ -1,2 +1,3 @@
-
-<a *ngFor="let tank of tanks | async"(click)="goToTank(tank)">{{tank.name}}</a>
+<ul>
+<li *ngFor="let tank of tanks | async"(click)="goToTank(tank)">{{tank.name}}</li>
+</ul>

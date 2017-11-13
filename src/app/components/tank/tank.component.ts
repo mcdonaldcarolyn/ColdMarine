@@ -7,7 +7,7 @@ import 'rxjs/add/observable/of';
 import { Http } from '@angular/http';
 import { DailyComponent } from '../daily/daily.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Tank } from '../../state/tank';
 
 @Component({
@@ -18,8 +18,8 @@ import { Tank } from '../../state/tank';
 export class TankComponent {
   displayedColumns = ['date', 'temperature', 'pump1', 'pump2'];
   date = new Date (11, 6);
-  tank: Tank[];
-  
+  tanks: AngularFireList<Tank>;
+
   constructor(private router: Router, afDb: AngularFireDatabase) {
       this.tanks = afDb.list('tanks');
     }
