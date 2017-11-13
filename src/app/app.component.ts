@@ -4,14 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import { Routes, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/observable/of';
 import { Http } from '@angular/http';
-/**
- * @title Basic table
- */
+
 @Component({
   selector: 'app-root',
   styleUrls: ['app.component.css'],
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  
+  fakeSomething: number;
 }
