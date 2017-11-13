@@ -5,36 +5,41 @@ import { Routes, ActivatedRoute, Params, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import 'rxjs/add/observable/of';
 import { Http } from '@angular/http';
-import { NewdataComponent } from '../newdata/newdata.component';
-
+import { DailyComponent } from '../daily/daily.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { Tank } from '../../state/tank';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-tank',
+  templateUrl: './tank.component.html',
+  styleUrls: ['./tank.component.css']
 })
-export class HomeComponent {
+export class TankComponent {
   displayedColumns = ['date', 'temperature', 'pump1', 'pump2'];
   dataSource = new ExampleDataSource();
   date = new Date (11, 6);
 
-  constructor(private router: Router) {
+  constructor(private router: Router, afDb: AngularFireDatabase) {
+      this.tanks = afDb.list('items');
+    }
 
-  }
+  
   newDataInfo() {
-    this.router.navigate(['/newdata']);
+    this.router.navigate(['/daily']);
   }
 
 
 }
 
-export interface Element {
+export interface Checkin {
   temperature: string;
-  date: number;
-  pump1: any;
+  date: string;
+  NumberofPumps: any;
+  pump1: string;
   pump2: string;
 }
 
-const data: Element[] = [
+/**const data: Checkin[] = [
   { date: 1, temperature: '52.2', pump1: true, pump2: 'H' },
   { date: 2, temperature: '52.5', pump1: true, pump2: 'He' },
   { date: 3, temperature: '', pump1: 6.941, pump2: 'Li' },
@@ -55,7 +60,7 @@ const data: Element[] = [
   { date: 18, temperature: '', pump1: 39.948, pump2: 'Ar' },
   { date: 19, temperature: '', pump1: 39.0983, pump2: 'K' },
   { date: 20, temperature: '', pump1: 40.078, pump2: 'Ca' }
-];
+];*/
 
 /**
  * Data source to provide what data should be rendered in the table. The observable provided
@@ -65,7 +70,7 @@ const data: Element[] = [
  */
 export class ExampleDataSource extends DataSource<any> {
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Element[]> {
+  connect(): Observable<Checkin[]> {
     return Observable.of(data);
   }
 
