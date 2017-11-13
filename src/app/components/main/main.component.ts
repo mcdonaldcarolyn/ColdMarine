@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatebase } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { Routes, ActivatedRoute, Params, Router } from '@angular/router';
+import { Tank } from '../../state/tank';
+import { TankComponent } from '../tank/tank.component';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +11,14 @@ import { Routes, ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  tanks: Tank[];
+ 
   constructor(private router: Router, afDb: AngularFireDatabase) {
-      this.tanks = afDb.list('items');
+      this.tanks = afDb.list('tanks');
     }
 
-    goToTank(tank:Tank){
-      this.router.navigate('/tank')
+    goToTank(tank: Tank) {
+      this.router.navigate(['/tank'], {tank:tank})
     }
   ngOnInit() {
   }
