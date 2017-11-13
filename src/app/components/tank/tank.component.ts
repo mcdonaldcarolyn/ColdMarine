@@ -7,8 +7,9 @@ import 'rxjs/add/observable/of';
 import { Http } from '@angular/http';
 import { DailyComponent } from '../daily/daily.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { Tank } from '../../state/tank';
+
 @Component({
   selector: 'app-tank',
   templateUrl: './tank.component.html',
@@ -16,14 +17,14 @@ import { Tank } from '../../state/tank';
 })
 export class TankComponent {
   displayedColumns = ['date', 'temperature', 'pump1', 'pump2'];
-  dataSource = new ExampleDataSource();
   date = new Date (11, 6);
-
+  tank: Tank[];
+  
   constructor(private router: Router, afDb: AngularFireDatabase) {
-      this.tanks = afDb.list('items');
+      this.tanks = afDb.list('tanks');
     }
 
-  
+
   newDataInfo() {
     this.router.navigate(['/daily']);
   }
@@ -68,12 +69,6 @@ export interface Checkin {
  * altered, the observable should emit that new set of data on the stream. In our case here,
  * we return a stream that contains only one set of data that doesn't change.
  */
-export class ExampleDataSource extends DataSource<any> {
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Checkin[]> {
-    return Observable.of(data);
-  }
 
-  disconnect() {}
 
-}
+

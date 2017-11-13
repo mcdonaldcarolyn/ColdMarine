@@ -16,8 +16,8 @@ import 'hammerjs';
 
 const appRoutes: Routes = [
   {path: '', component: MainComponent },
-  {path: 'Tank', component: TankComponent },
-  {path: 'Daily', component: DailyComponent},
+  {path: 'tank', component: TankComponent },
+  {path: 'daily', component: DailyComponent},
 ];
 
 const config = {
