@@ -1,34 +1,34 @@
 
-<div>Hello World</div>
 
-<!--<div class="example-container mat-elevation-z8">
+
+<div class="example-container mat-elevation-z8">
 
   <mat-table #table [dataSource]="dataSource">
   
       
   
-      <!-- Position Column 
+      <!-- Position Column -->
       <ng-container matColumnDef="date">
         <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-        <mat-cell *matCellDef="let checkin">{{ checkin.date | date: "MM-dd" }} </mat-cell>
+        <mat-cell *matCellDef="let log">{{ log.date | date: "MM-dd" }} </mat-cell>
       </ng-container>
   
-      <!-- Name Column 
-      <ng-container matColumnDef="temperature">
-        <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
-        <mat-cell *matCellDef="let checkin"> {{checkin.temperature}} </mat-cell>
+      <!-- Name Column -->
+      <ng-container matColumnDef="temp">
+        <mat-header-cell *matHeaderCellDef> Temp </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{log.temperature}} </mat-cell>
       </ng-container>
   
-      <!-- Weight Column 
-      <ng-container matColumnDef="pump1">
-        <mat-header-cell *matHeaderCellDef> pump 1 </mat-header-cell>
-         <mat-cell *matCellDef="let element"> {{element.pump1}} </mat-cell>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="pumps">
+        <mat-header-cell *matHeaderCellDef> pumps </mat-header-cell>
+         <mat-cell *matCellDef="let log"> {{log.pumpson}} </mat-cell>
           </ng-container>
   
-      <!-- Color Column 
-      <ng-container matColumnDef="pump2">
-        <mat-header-cell *matHeaderCellDef> pump 2 </mat-header-cell>
-        <mat-cell *matCellDef="let checkin"> {{checkin.pump2}} </mat-cell>
+      <!-- Color Column -->
+      <ng-container matColumnDef="BW">
+        <mat-header-cell *matHeaderCellDef> BW </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{log.backwash}} </mat-cell>
       </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
