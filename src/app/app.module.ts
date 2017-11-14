@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatTableModule, MatMenuModule, MatToolbarModule, MatIconModule} from '@angular/material';
-import { MatFormFieldModule, MatSliderModule } from '@angular/material';
+import { MatFormFieldModule, MatSliderModule, MatCheckboxModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -49,6 +49,7 @@ const config = {
     MatTableModule,
     MatFormFieldModule,
     MatSliderModule,
+    MatCheckboxModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     RouterModule.forRoot(appRoutes)

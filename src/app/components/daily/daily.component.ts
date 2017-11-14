@@ -23,7 +23,7 @@ addDailyData(){
   let Daily = {
     date: Date,
     temperature: this.temperature,
-    pumps: this.pumpsOn,
+    pumps: this.pumps,
     backwash: this.backwash,
     skimmer: this.skimmer,
 
