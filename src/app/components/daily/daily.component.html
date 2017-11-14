@@ -1,13 +1,14 @@
 <a [routerLink] = "['/tank']"> Back </a>
 <div>
+  <form (submit) = "addDailyData()">
   <mat-form-field>
-    <label> Date</label>
+    <label> Date </label>
     
 
 </mat-form-field>  
   <mat-form-field>
       <label> Temperature</label>
-      <input matInput placeholder="mat-Input"[(ngModel)]= "temperature" name  = "temperature">
+      <input [(ngModel)]= "temperature" name  = "temperature">
    <mat-slider></mat-slider>
     </mat-form-field>
   
@@ -21,10 +22,24 @@
       <mat-checkbox>pump 3</mat-checkbox>
       <br>
       <mat-checkbox>pump 4 </mat-checkbox>
-      <textarea matInput placeholder="Textarea"></textarea>
+     </mat-form-field>
+
+    <mat-form-field>
+      <label> Backwash </label>
+      <mat-checkbox> Complete </mat-checkbox>
     </mat-form-field>
+
+    <mat-form-field>
+      <label> Skimmer</label>
+      <mat-checkbox> Cleaned </mat-checkbox>
+    </mat-form-field>
+
+    <mat-form-field>
+      <label> Notes</label>
+      <textarea name="" id="" cols="30" rows="10"></textarea>
   
-    
-    </div>
+    </mat-form-field>
+  </form>  
+  </div>
    
     
