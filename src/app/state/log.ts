@@ -4,7 +4,7 @@ export interface Log {
     backwash: boolean;
     pumpsOn: number;
     pumpsOff: number;
-    Notes: string;
+    notes: string;
     skimmer: boolean;
     bags: boolean;
     imageUrl: string;

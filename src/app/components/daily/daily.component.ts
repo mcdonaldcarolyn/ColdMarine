@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList,  } from 'angularfire2/database';
 import { Routes, ActivatedRoute, Params, Router } from '@angular/router';
 import { Log } from '../../state/log';
 import { Observable } from 'rxjs/observable';
@@ -10,12 +10,13 @@ import { Observable } from 'rxjs/observable';
   styleUrls: ['./daily.component.css']
 })
 export class DailyComponent {
-  date: Date;
+  date:  Date;
   temperature: number;
   pumps: number;
   backwash: boolean;
   skimmer: boolean;
-  logs: Observable<logs>;
+  logs: AngularFireList<Log>;
+
 
   constructor(private route: ActivatedRoute, private router: Router, private afDb: AngularFireDatabase) {
     this.route.queryParams.subscribe(params => {
@@ -25,13 +26,12 @@ export class DailyComponent {
 
   
 addDailyData() {
-  this.logs.push({
-    date: Date,
+  let logs  = {
+    date: Date(),
     temperature: this.temperature,
-    pumps: this.pumps,
     backwash: this.backwash,
     skimmer: this.skimmer,
-  });
+  };
 }
 
 }

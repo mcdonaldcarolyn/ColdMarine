@@ -1,3 +1,10 @@
-<ul>
-<li *ngFor="let tank of tanks | async" (click)="goToTank(tank)">{{tank.name}}</li>
-</ul>
+<div class = "jumbotron text-center">
+  <div class = "container">
+    <h1> Cold Marine </h1>
+    
+    <ul>
+      <li *ngFor="let tank of tanks | async" (click)="goToTank(tank)">{{tank.name}}</li>
+    </ul>
+  
+  </div>
+</div>
