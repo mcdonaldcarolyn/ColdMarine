@@ -21,16 +21,22 @@ export class TankComponent {
   date = new Date (11, 6);
   tanks: Observable<Tank>;
   dataSource: LogDataSource;
+  tankNumber: number;
 
   constructor(private route: ActivatedRoute, private router: Router, afDb: AngularFireDatabase) {
       this.route.queryParams.subscribe(params => {
       const logs$: Observable<Log[]> = afDb.list('tanks/tank' + params['tankNumber'] + '/logs').valueChanges();
       this.dataSource = new LogDataSource(logs$);
+      this.tankNumber = params['tankNumber'];
     });
   }
 
   newDataInfo() {
-    this.router.navigate(['/daily']);
+    this.router.navigate(['/daily'], {
+      queryParams: {
+        tankNumber: this.tankNumber
+      }
+    });
   }
 }
 

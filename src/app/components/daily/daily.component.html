@@ -1,14 +1,13 @@
 <a [routerLink] = "['/tank']"> Back </a>
-<div>
+<div class = "example-container">
   <form (submit) = "addDailyData()">
   <mat-form-field>
     <label> Date </label>
-    
-
-</mat-form-field>  
-  <mat-form-field>
+    </mat-form-field>  
+  
+    <mat-form-field>
       <label> Temperature</label>
-      <input [(ngModel)]= "temperature" name  = "temperature">
+      
    <mat-slider></mat-slider>
     </mat-form-field>
   
