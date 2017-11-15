@@ -4,15 +4,16 @@ import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList,  } fro
 import { Routes, ActivatedRoute, Params, Router } from '@angular/router';
 import { Log } from '../../state/log';
 import { Observable } from 'rxjs/observable';
+import { Tank } from '../../state/tank';
 @Component({
   selector: 'app-daily',
   templateUrl: './daily.component.html',
   styleUrls: ['./daily.component.css']
 })
 export class DailyComponent {
-  date:  Date;
+  date: new Date();
   temperature: number;
-  pumps: number;
+  //pumps: number;
   backwash: boolean;
   skimmer: boolean;
   logs: AngularFireList<Log>;
@@ -24,14 +25,11 @@ export class DailyComponent {
     });
    }
 
-  
-addDailyData() {
-  let logs  = {
-    date: Date(),
-    temperature: this.temperature,
-    backwash: this.backwash,
-    skimmer: this.skimmer,
-  };
-}
+  addDailyData() {
+    this.logs.push(log);
+    this.router.navigate(['/tank'],
+    {queryParams: { tankNumber: tank.tankNumber}
+  });
+  }
 
 }
