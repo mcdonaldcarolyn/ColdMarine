@@ -25,11 +25,10 @@ export class DailyComponent {
     });
    }
 
-  addDailyData() {
-    this.logs.push(log);
-    this.router.navigate(['/tank'],
-    {queryParams: { tankNumber: tank.tankNumber}
-  });
+  addDailyData(log: Log) {
+    this.logs.push(log)
+      .
+    }
   }
 
 }
