@@ -1,6 +1,6 @@
 <a [routerLink] = "['/tank']"> Back </a>
 <div class = "example-container">
-  <form (submit) = "addDailyData(logData)">
+  <form>
   
     <label [(ngModel)]="logData.date" name="date"> Date </label>
      
@@ -8,26 +8,30 @@
     
       <label> Temperature</label>
       
-   <mat-slider><input [(ngModel)]= "logData.temperature" name="temperature" [min]="40" [max]= "60" [step]= "0.5"></mat-slider>
+    <mat-slider><input [(ngModel)]= "logData.temperature" name="temperature" [min]="40" [max]= "60" [step]= "0.5"></mat-slider>
     
   
     
       <label> Pumps</label>
       <br>
-      <mat-checkbox>
-        <input [(ngModel)]="logData.pump1">pump 1</mat-checkbox>
+      <mat-checkbox
+        input [(ngModel)]="logData.pump1" name="pump1">pump 1</mat-checkbox>
       
       <br>
-      <mat-checkbox>pump 2 </mat-checkbox>
+      <mat-checkbox
+        input [(ngModel)]="logData.pump2" name="pump2">pump 2 </mat-checkbox>
       <br>
-      <mat-checkbox>pump 3</mat-checkbox>
+      <mat-checkbox
+        input [(ngModel)]="logData.pump3" name="pump3">pump 3</mat-checkbox>
       <br>
-      <mat-checkbox>pump 4 </mat-checkbox>
+      <mat-checkbox
+        input [(ngModel)]="logData.pump4" name="pump4">pump 4 </mat-checkbox>
     
 
  
       <label> Backwash </label>
-      <mat-checkbox> Complete </mat-checkbox>
+      <mat-checkbox 
+        input [(ngModel)]="logData.backwash" name="backwash">Complete </mat-checkbox>
    
 
     
@@ -38,7 +42,7 @@
       <label> Notes</label>
       <textarea name="" id="" cols="30" rows="10"></textarea>
   
-    
+      <button mat-raised-button (click)="addDailyData(logData)"> Save </button>
   </form>  
   </div>
    
