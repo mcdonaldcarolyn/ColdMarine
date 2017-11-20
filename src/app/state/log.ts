@@ -9,5 +9,8 @@ export interface Log {
     bags?: boolean;
     imageUrl?: string;
     ads?: string;
-  }
-  
+    pump1?: boolean;
+    pump2?: boolean;
+    pump3?: boolean;
+    pump4?: boolean;
+}
