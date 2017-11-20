@@ -11,7 +11,7 @@ import { Tank } from '../../state/tank';
   styleUrls: ['./daily.component.css']
 })
 export class DailyComponent {
-  date: new Date();
+ // date: new Date();
   temperature: number;
   //pumps: number;
   backwash: boolean;
@@ -26,9 +26,8 @@ export class DailyComponent {
    }
 
   addDailyData(log: Log) {
-    this.logs.push(log)
-      .
+    this.logs.push(log);
+      this.router.navigate(['/tank']);
     }
   }
 
-}
