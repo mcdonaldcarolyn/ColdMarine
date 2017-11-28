@@ -19,21 +19,36 @@
         <mat-cell *matCellDef="let log"> {{log.temperature}} </mat-cell>
       </ng-container>
   
-      <!-- Weight Column -->
+       
       <ng-container matColumnDef="pumps">
         <mat-header-cell *matHeaderCellDef> pumps </mat-header-cell>
-         <mat-cell *matCellDef="let log"> {{log.pumpson}} </mat-cell>
+         <mat-cell *matCellDef="let log"> 
+           <mat-icon *ngIf="log.pumpsOn > 0">done</mat-icon>
+           <mat-icon *ngIf="log.pumpsOn > 1">done</mat-icon>
+           <mat-icon *ngIf="log.pumpsOn > 2">done</mat-icon>
+           <mat-icon *ngIf="log.pumpsOn > 3">done</mat-icon>
+         </mat-cell>
           </ng-container>
   
-      <!-- Color Column -->
-      <ng-container matColumnDef="BW">
+      
+      <!--<ng-container matColumnDef="BW">
         <mat-header-cell *matHeaderCellDef> BW </mat-header-cell>
-        <mat-cell *matCellDef="let log"> {{log.backwash}} </mat-cell>
+        <mat-cell*matCellDef="let log"> {{log.backwash}} done</mat-icon>
       </ng-container>
   
+      <ng-container matColumnDef="Skimmer">
+          <mat-header-cell *matHeaderCellDef> Skimmer </mat-header-cell>
+          <mat-icon *matCellDef="let log"> {{log.skimmer}} done</mat-icon>
+        </ng-container>
+
+        <ng-container matColumnDef="Notes">
+            <mat-header-cell *matHeaderCellDef> Notes</mat-header-cell>
+            <mat-cell *matCellDef="let log"> {{log.notes}} </mat-cell>
+          </ng-container>-->
+      
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
     <br>
-    <button mat-button (click)="newDataInfo($event)"> New Data </button>
+    <button type ="button" mat-button (click)="newDataInfo($event)"> New Data </button>
   </div>

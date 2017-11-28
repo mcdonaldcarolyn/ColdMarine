@@ -1,21 +1,20 @@
 <a [routerLink] = "['/tank']"> Back </a>
-<div class = "example-container">
+
   <form>
   
-    <label [(ngModel)]="logData.date" name="date"> Date </label>
-     
+    <label type="datetime-local" name="date" > {{logData.date | date: "MM-dd"}} </label>
+    
   
     
       <label> Temperature</label>
       
-    <mat-slider><input [(ngModel)]= "logData.temperature" name="temperature" [min]="40" [max]= "60" [step]= "0.5"></mat-slider>
+    <mat-slider [(ngModel)]= "logData.temperature" name="temperature" [min]="40" [max]= "60" [step]= "0.5"></mat-slider>
     
   
     
       <label> Pumps</label>
       <br>
-      <mat-checkbox
-        input [(ngModel)]="logData.pump1" name="pump1">pump 1</mat-checkbox>
+      <mat-checkbox [(ngModel)]="logData.pump1" name="pump1">pump 1</mat-checkbox>
       
       <br>
       <mat-checkbox
@@ -42,8 +41,8 @@
       <label> Notes</label>
       <textarea name="" id="" cols="30" rows="10"></textarea>
   
-      <button mat-raised-button (click)="addDailyData(logData)"> Save </button>
+      <button type = "button" mat-button (click)="addDailyData(logData)"> Save </button>
   </form>  
-  </div>
+
    
     

@@ -17,7 +17,8 @@ import { Log } from '../../state/log';
   styleUrls: ['./tank.component.css']
 })
 export class TankComponent {
-  displayedColumns = ['date', 'temp', 'pumps', 'BW'];
+  displayedColumns = ['date', 'temp', 'pumps'];
+  // displayedColumns = ['date', 'temp', 'pumps', 'BW', 'Skimmer', 'Notes'];
   date = new Date (11, 6);
   tanks: Observable<Tank>;
   dataSource: LogDataSource;
